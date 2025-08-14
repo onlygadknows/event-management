@@ -4,12 +4,13 @@ namespace App\Http\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 
 trait CanLoadRelationships
 {
     public function loadRelationships(
-        Model|EloquentBuilder|QueryBuilder $for,
+        Model|EloquentBuilder|QueryBuilder|HasMany $for,
         ?array $relations = null
     ) {
         $relations = $relations ?? $this->relations ?? [];
